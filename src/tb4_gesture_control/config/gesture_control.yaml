@@ -1,0 +1,23 @@
+gesture_recognition_node:
+  ros__parameters:
+    camera_index: 0
+    camera_width: 640
+    camera_height: 480
+    capture_rate_hz: 15.0
+    model_path: ~/.ros/gesture_recognizer.task
+    confidence_threshold: 0.60
+    stable_frames: 3
+    show_window: true
+    gesture_topic: /detected_gesture
+    status_topic: /gesture_control/status
+
+robot_behavior_node:
+  ros__parameters:
+    gesture_topic: /detected_gesture
+    cmd_vel_topic: /cmd_vel
+    scan_topic: /scan
+    odom_topic: /odom
+    control_timeout_sec: 1.0
+    scan_timeout_sec: 1.0
+    obstacle_stop_distance: 0.45
+    require_laser_scan: true
